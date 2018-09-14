@@ -9,7 +9,7 @@ import {
   MathHelper
 } from './src/helpers'
 
-export {
+module.export = {
   FSHelper,
   JSONHelper,
   StringHelper,
