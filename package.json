@@ -1,0 +1,32 @@
+{
+  "name": "ika-common",
+  "version": "1.0.0",
+  "description": "Simple pulse analytics",
+  "main": "index.js",
+  "scripts": {
+    "start": "babel-node src/index.js",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/adziashvili/ika-common.git"
+  },
+  "author": "adziashvili",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/adziashvili/ika-common/issues"
+  },
+  "homepage": "https://github.com/adziashvili/ika-common#readme",
+  "devDependencies": {
+    "babel-cli": "^6.26.0",
+    "babel-core": "^6.26.3",
+    "babel-preset-env": "^1.7.0",
+    "eslint": "^5.5.0",
+    "eslint-config-airbnb-base": "^13.1.0",
+    "eslint-plugin-import": "^2.14.0"
+  },
+  "dependencies": {
+    "colors": "^1.3.2",
+    "exceljs": "^1.6.2"
+  }
+}
