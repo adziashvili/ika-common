@@ -11,14 +11,14 @@
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/adziashvili/ika-common.git"
+    "url": "git+https://github.com/adziashvili/ika-helpers.git"
   },
   "author": "adziashvili",
   "license": "ISC",
   "bugs": {
-    "url": "https://github.com/adziashvili/ika-common/issues"
+    "url": "https://github.com/adziashvili/ika-helpers/issues"
   },
-  "homepage": "https://github.com/adziashvili/ika-common#readme",
+  "homepage": "https://github.com/adziashvili/ika-helpers#readme",
   "devDependencies": {
     "babel-cli": "^6.26.0",
     "babel-core": "^6.26.3",
