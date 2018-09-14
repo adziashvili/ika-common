@@ -68,13 +68,31 @@ export default class MathHelper {
     return MathHelper.devide(values.reduce((sum, v) => sum + v), values.length) * 1
   }
 
+  static isSFDCNumber(data) {
+    const ZERO_OR_MISSING = [null, '', '-']
+    const sizeOfDashOrNull = data.filter(d => ZERO_OR_MISSING.includes(d)).length
+
+    if (sizeOfDashOrNull === data.length) {
+      return false
+    }
+
+    return !data.filter(d => !ZERO_OR_MISSING.includes(d))
+      .some(d => typeof d !== 'number')
+  }
+
+  /**
+   * [PoP description]
+   *
+   * @param {Array}  [data=[]]        [description]
+   * @param {[type]} [transform=null] [description]
+   */
   static PoP(data = [], transform = null) {
     if (!data || !Array.isArray(data)) {
       console.log('WARNING: data passed to MathHelper.PoP must be an array. Received:', typeof data);
       return []
     }
 
-    if ((!transform || transform === null) && !data.some(v => Number.isNaN(v))) {
+    if ((!transform || transform === null) && !MathHelper.isSFDCNumber(data)) {
       console.log('WARNING: When trasnform is null or undefined data must numeric array.');
       return []
     }
