@@ -1,6 +1,4 @@
-import JSONHelper from './jsonHelper'
-
-require('colors')
+import { JSONHelper } from '.'
 
 const fs = require('fs')
 

@@ -1,5 +1,3 @@
-import { Analyzer } from '..'
-
 export default class MathHelper {
   static devide(a, b, fixed = 2) {
     if (!b || b === 0) return b
@@ -76,7 +74,7 @@ export default class MathHelper {
       return []
     }
 
-    if ((!transform || transform === null) && !Analyzer.isNumber(data)) {
+    if ((!transform || transform === null) && !data.some(v => Number.isNaN(v))) {
       console.log('WARNING: When trasnform is null or undefined data must numeric array.');
       return []
     }

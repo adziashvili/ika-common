@@ -10,6 +10,8 @@ import {
 }
 from './helpers'
 
+require('colors')
+
 module.exports = {
   FSHelper,
   JSONHelper,
