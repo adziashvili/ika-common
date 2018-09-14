@@ -8,4 +8,4 @@ export {
   ExcelReader,
   MathHelper
 }
-from './src/helpers'
+from './helpers'

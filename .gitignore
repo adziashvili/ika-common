@@ -36,6 +36,8 @@ build/Release
 node_modules/
 jspm_packages/
 
+#distribution
+distribution
 
 # Storage
 data/

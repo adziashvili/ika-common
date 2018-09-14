@@ -2,9 +2,11 @@
   "name": "ika-common",
   "version": "1.0.4",
   "description": "Simple pulse analytics",
-  "main": "index.js",
+  "main": "./distribution/index.js",
   "scripts": {
-    "start": "babel-node src/index.js",
+    "build": "babel source --out-dir distribution",
+    "start": "babel-node soruce/index.js",
+    "prepublish": "npm run build",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "repository": {
