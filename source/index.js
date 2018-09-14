@@ -1,14 +1,18 @@
-import FSHelper from './helpers/fsHelper'
-import JSONHelper from './helpers/jsonHelper'
-import StringHelper from './helpers/stringHelper'
-import StringBuffer from './helpers/stringBuffer'
-import DateHelper from './helpers/dateHelper'
-import ReportHelper from './helpers/reportHelper'
-import ExcelReader from './helpers/excelReader'
-import MathHelper from './helpers/mathHelper'
+import {
+  FSHelper,
+  JSONHelper,
+  StringHelper,
+  StringBuffer,
+  DateHelper,
+  ReportHelper,
+  ExcelReader,
+  MathHelper
+} from './helpers'
 
 require('colors')
 
+// Using CommonJS style to
+// export this ES6 Module.
 module.exports = {
   FSHelper,
   JSONHelper,
