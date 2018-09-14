@@ -7,7 +7,7 @@ import {
   ReportHelper,
   ExcelReader,
   MathHelper
-} from './helpers'
+} from './src/helpers'
 
 export {
   FSHelper,
