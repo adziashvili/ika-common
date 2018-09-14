@@ -1,4 +1,4 @@
-export {
+import {
   FSHelper,
   JSONHelper,
   StringHelper,
@@ -9,3 +9,14 @@ export {
   MathHelper
 }
 from './helpers'
+
+module.exports = {
+  FSHelper,
+  JSONHelper,
+  StringHelper,
+  StringBuffer,
+  DateHelper,
+  ReportHelper,
+  ExcelReader,
+  MathHelper
+}
