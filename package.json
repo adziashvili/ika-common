@@ -1,6 +1,6 @@
 {
   "name": "ika-common",
-  "version": "1.0.3",
+  "version": "1.0.4",
   "description": "Simple pulse analytics",
   "main": "index.js",
   "scripts": {
