@@ -1,7 +1,7 @@
 {
   "name": "ika-helpers",
   "version": "1.0.7",
-  "description": "Simple pulse analytics",
+  "description": "IKA Helpers Package",
   "main": "./distribution/index.js",
   "scripts": {
     "build": "babel source --out-dir distribution",
