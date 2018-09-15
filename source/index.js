@@ -6,7 +6,8 @@ import {
   DateHelper,
   ReportHelper,
   ExcelReader,
-  MathHelper
+  MathHelper,
+  Statistics
 } from './helpers'
 
 require('colors')
@@ -21,5 +22,6 @@ module.exports = {
   DateHelper,
   ReportHelper,
   ExcelReader,
-  MathHelper
+  MathHelper,
+  Statistics
 }

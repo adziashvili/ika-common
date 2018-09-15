@@ -6,6 +6,7 @@ import DateHelper from './dateHelper'
 import ReportHelper from './reportHelper'
 import ExcelReader from './excelReader'
 import MathHelper from './mathHelper'
+import Statistics from './statistics'
 
 require('colors')
 
@@ -17,5 +18,6 @@ export {
   DateHelper,
   ReportHelper,
   ExcelReader,
-  MathHelper
+  MathHelper,
+  Statistics
 }
