@@ -32,6 +32,10 @@ export default class StringBuffer {
     return this.append('\n')
   }
 
+  join(delimiter) {
+    return this._buffer.join(delimiter)
+  }
+
   toString() {
     let str = ''
     this._buffer.forEach((s) => {
