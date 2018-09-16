@@ -6,8 +6,8 @@
   "scripts": {
     "build": "babel source --out-dir distribution",
     "start": "babel-node soruce/index.js",
-    "prepublish": "npm run build",
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "npm run build && node distribution/selftest.js",
+    "prepublish": "npm run build"
   },
   "repository": {
     "type": "git",
