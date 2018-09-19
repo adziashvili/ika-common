@@ -82,6 +82,26 @@ export default class StringHelper {
   }
 
   /**
+   * Adds a prefix to a string up to a specfiied length.
+   *
+   * e.g. prefix ("Hi", 5, "Z") will result in "ZZZHi"
+   *
+   * @param {String} [str='']                               String to pad.
+   * @param {[type]} [max=StringHelper.DEFAULT_MAX_PADDING] Total final length desired.
+   *                                                        Includes Str and prefix added.
+   * @param {[type]} [c=StringHelper.PADDING_CHAR]          What character to add as prefix.
+   *
+   * @return {String} A string with prefix with a 'max' length
+   */
+  static prefix(
+    str = '',
+    max = StringHelper.DEFAULT_MAX_PADDING,
+    c = StringHelper.PADDING_CHAR
+  ) {
+    return StringHelper.exact(str, max, c, true)
+  }
+
+  /**
    * Detects if a string is styled or not.
    *
    * @param {Style} str String to test for styling.
@@ -131,28 +151,16 @@ export default class StringHelper {
     return tmp.join('')
   }
 
+  /**
+   * [style description]
+   *
+   * @param {String} [targetStr=''] [description]
+   * @param {String} [styledStr=''] [description]
+   *
+   * @return {[type]} [description]
+   */
   static style(targetStr = '', styledStr = '') {
     return StringHelper.applyStyle(targetStr, StringHelper.getStyle(styledStr))
-  }
-
-  /**
-   * Adds a prefix to a string up to a specfiied length.
-   *
-   * e.g. prefix ("Hi", 5, "Z") will result in "ZZZHi"
-   *
-   * @param {String} [str='']                               String to pad.
-   * @param {[type]} [max=StringHelper.DEFAULT_MAX_PADDING] Total final length desired.
-   *                                                        Includes Str and prefix added.
-   * @param {[type]} [c=StringHelper.PADDING_CHAR]          What character to add as prefix.
-   *
-   * @return {String} A string with prefix with a 'max' length
-   */
-  static prefix(
-    str = '',
-    max = StringHelper.DEFAULT_MAX_PADDING,
-    c = StringHelper.PADDING_CHAR
-  ) {
-    return StringHelper.exact(str, max, c, true)
   }
 
   /**
