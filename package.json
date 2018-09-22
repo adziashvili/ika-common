@@ -1,6 +1,6 @@
 {
   "name": "ika-helpers",
-  "version": "1.0.14",
+  "version": "1.0.15",
   "description": "IKA Helpers Package",
   "main": "./distribution/index.js",
   "scripts": {
