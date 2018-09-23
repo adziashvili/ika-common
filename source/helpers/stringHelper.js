@@ -166,22 +166,16 @@ export default class StringHelper {
   /**
    * Parses a number string.
    *
-   * @param {String} [value="0.00"]                     Value to parse. Can be string or numeric.
-   * @param {String} [currencyPrefix="USD "]            When it a string, currency will be trimmed
+   * @param {String} [value="0.00"]  Value to parse. Can be string or numeric.
    *
    * @return {number} Float number representing the value parsed
    */
-  static parseNumber(value = '0.00', currencyPrefix = 'USD ') {
-    let tmpVal = (value === '-' || value === '') ? '0.00' : value
+  static parseNumber(value = '0.00') {
+    let tmpVal = ['-', '', null, 'null', undefined].includes(value) ? '0.00' : value
 
     if (typeof tmpVal === 'string') {
-      if (tmpVal.startsWith(currencyPrefix)) {
-        tmpVal = tmpVal.substring(currencyPrefix.length)
-      }
-      // remove currency prefix
-
-      tmpVal = tmpVal.replace(new RegExp(',', 'g'), '')
-      // just in case, since Number.parseFloat() trims on ,
+      tmpVal = tmpVal.replace(/[^-0-9.]/gi, '')
+      // taking only numeric characters from the start of the first match, the rest is removed
     }
 
     return Number.parseFloat(tmpVal)
@@ -199,10 +193,10 @@ export default class StringHelper {
    * @return {number}  Percent numeric value
    */
   static parsePercent(value = '0%', bScaleToOne = true) {
-    let tmpVal = (value === '-' || value === '') ? '0%' : value
+    let tmpVal = ['-', '', null, 'null', undefined].includes(value) ? '0%' : value
 
     if (typeof tmpVal === 'string') {
-      tmpVal = tmpVal.replace('%', '')
+      tmpVal = tmpVal.replace(/[^-0-9.]/gi, '')
       // removing the % sign if it is included
     }
 
@@ -221,7 +215,7 @@ export default class StringHelper {
    * @param {String} [value=''] Value to parse.
    *
    * @return {boolean} If value is tring, returns true if lower ccase
-   *                   value matches "yes", "true" or "1".
+   *                   value matches "yes", "true" or "1" after triming whitespaces.
    *
    *                   If value is boolean, it is returned as is.
    */
@@ -229,8 +223,7 @@ export default class StringHelper {
     if (typeof value === 'boolean') {
       return value
     }
-    const v = value.toLowerCase()
-    return (v === 'yes' || v === 'true' || v === 1)
+    return ['yes', 'true', '1'].includes(value.toLowerCase().trim())
   }
 
   /**
@@ -238,11 +231,12 @@ export default class StringHelper {
    *
    * e.g. addCommas (10000.321) will return "10,000.321"
    *
-   * @param {number} x A number
+   * @param {number} inX A number
    *
    * @return {string} Commas seperated by thousands
    */
-  static addCommas(x) {
+  static addCommas(inX) {
+    const x = ['-', '', null, 'null', undefined].includes(inX) ? 0 : inX
     const parts = x.toString().split('.');
     parts[0] = parts[0].replace(/\B(?=(\d{3})+(?!\d))/g, ',');
     return parts.join('.');

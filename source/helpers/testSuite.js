@@ -1,10 +1,41 @@
 import Timer from './timer'
+import StringHelper from './stringHelper'
+import StringBuffer from './stringBuffer'
+
+// .append('\u2713'.green)
+
+function where(e, inStackIndex = 1) {
+  const lines = e.stack.split('\n').slice()
+
+  const title = lines[0]
+  const failure = title.slice(title.lastIndexOf(':') + 1).trim()
+
+  const line = lines[1]
+  const startIndex = line.lastIndexOf('/')
+  const endIndex = line.lastIndexOf(')')
+  const location = line.slice(startIndex + inStackIndex, endIndex)
+  return `${failure} at ${location}`
+}
 
 class Test {
   constructor(msg, func) {
     this.msg = msg
     this.func = func
     this.pass = undefined
+    this.indent = 1
+    this.whereFailed = ''
+  }
+
+  report(index) {
+    const sb = new StringBuffer()
+    sb
+      .appendTimes(' ', this.indent)
+      .appendExact(`${index + 1})`, 4)
+      .appendExact(this.pass ? 'Pass'.green : 'Fail'.red, 5)
+      .appendExact(`${this.ms}ms`, 7)
+      .appendExact(this.msg.italic, 43)
+      .append(this.whereFailed)
+    console.log(sb.toString())
   }
 
   run(index = '') {
@@ -14,12 +45,11 @@ class Test {
       this.func()
       this.pass = true
     } catch (e) {
+      this.whereFailed = `${where(e).red}`
       this.pass = false
     }
     this.ms = timer.finish(this.msg).ms
-    const passOrFail = this.pass ? 'Pass'.green : 'Fail'.red
-    console.log(` ${index + 1}) ${this.ms}ms ${passOrFail} ${this.msg.italic}`)
-
+    this.report(index)
     return this.pass
   }
 }
@@ -42,13 +72,17 @@ export default class TestSuite {
       }
     })
 
-    console.log('\n', 'TEST REPORT'.bold.underline, `${ms}ms`)
+    console.log('\n', 'TEST REPORT'.bold.underline)
 
     const testSetPassRatio = (testSetsPassed / testSetCount * 100).toFixed(0)
-    console.log(` Modules pass ratio: ${testSetPassRatio}% (${testSetsPassed}/${testSetCount})`)
+    const modulesTitle = StringHelper.exact('Modules:', 10)
+    console.log(` ${modulesTitle} Pass ${testSetsPassed}/${testSetCount} (${testSetPassRatio}%)`)
 
     const testPassRatio = (testsPassed / testCount * 100).toFixed(0)
-    console.log(` Tests pass ratio: ${testPassRatio}% (${testsPassed}/${testCount})`)
+    const testsTitle = StringHelper.exact('Tests:', 10)
+    console.log(` ${testsTitle} Pass ${testsPassed}/${testCount} (${testPassRatio}%)`)
+
+    console.log(` ${StringHelper.exact('Duration:', 10)} ${ms}ms`);
   }
 
   constructor(name) {

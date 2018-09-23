@@ -4,10 +4,10 @@
   "description": "IKA Helpers Package",
   "main": "./distribution/index.js",
   "scripts": {
+    "prepublish": "npm run build",
     "build": "babel source --out-dir distribution",
     "start": "babel-node soruce/index.js",
-    "test": "npm run build && node distribution/test/selftest.js",
-    "prepublish": "npm run build"
+    "test": "npm run build && node distribution/test/selftest.js"
   },
   "repository": {
     "type": "git",
