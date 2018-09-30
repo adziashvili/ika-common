@@ -12,12 +12,6 @@ import {
   ExceptionHelper
 } from './helpers'
 
-import {
-  Test,
-  TestManager,
-  TestSet
-} from './test'
-
 require('colors')
 
 export {
@@ -31,8 +25,5 @@ export {
   MathHelper,
   Statistics,
   Timer,
-  ExceptionHelper,
-  Test,
-  TestSet,
-  TestManager
+  ExceptionHelper
 }
