@@ -7,14 +7,20 @@ import {
   ReportHelper,
   ExcelReader,
   MathHelper,
-  Statistics
+  Statistics,
+  Timer,
+  ExceptionHelper
 } from './helpers'
+
+import {
+  Test,
+  TestManager,
+  TestSet
+} from './test'
 
 require('colors')
 
-// Using CommonJS style to
-// export this ES6 Module.
-module.exports = {
+export {
   FSHelper,
   JSONHelper,
   StringHelper,
@@ -23,5 +29,10 @@ module.exports = {
   ReportHelper,
   ExcelReader,
   MathHelper,
-  Statistics
+  Statistics,
+  Timer,
+  ExceptionHelper,
+  Test,
+  TestSet,
+  TestManager
 }

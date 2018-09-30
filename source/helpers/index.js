@@ -7,8 +7,8 @@ import ReportHelper from './reportHelper'
 import ExcelReader from './excelReader'
 import MathHelper from './mathHelper'
 import Statistics from './statistics'
-import TestSuite from './testSuite'
 import Timer from './timer'
+import ExceptionHelper from './exceptionHelper'
 
 require('colors')
 
@@ -22,6 +22,6 @@ export {
   ExcelReader,
   MathHelper,
   Statistics,
-  TestSuite,
-  Timer
+  Timer,
+  ExceptionHelper
 }
